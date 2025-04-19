@@ -1,1 +1,199 @@
+-- Instances:
 
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local unload = Instance.new("TextButton")
+local esp = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.DisplayOrder = 2147483647
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.610976636, 0, 0.352251768, 0)
+Frame.Size = UDim2.new(0.335754633, 0, 0.417388707, 0)
+
+unload.Name = "unload"
+unload.Parent = Frame
+unload.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+unload.BorderColor3 = Color3.fromRGB(0, 0, 0)
+unload.BorderSizePixel = 0
+unload.Position = UDim2.new(-1.22314944e-07, 0, -0.0718085095, 0)
+unload.Size = UDim2.new(0.999999881, 0, 0.0718085095, 0)
+unload.Font = Enum.Font.SourceSans
+unload.Text = "unload"
+unload.TextColor3 = Color3.fromRGB(255, 255, 255)
+unload.TextScaled = true
+unload.TextSize = 14.000
+unload.TextStrokeTransparency = 0.000
+unload.TextWrapped = true
+
+esp.Name = "esp"
+esp.Parent = Frame
+esp.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+esp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+esp.BorderSizePixel = 0
+esp.Position = UDim2.new(-1.22314944e-07, 0, 0.127659574, 0)
+esp.Size = UDim2.new(0.999999881, 0, 0.103723407, 0)
+esp.Font = Enum.Font.SourceSans
+esp.Text = "toggle esp (off)"
+esp.TextColor3 = Color3.fromRGB(255, 255, 255)
+esp.TextScaled = true
+esp.TextSize = 14.000
+esp.TextStrokeTransparency = 0.000
+esp.TextWrapped = true
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(1, 0, 0.127659574, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "find the markers script that took me like 10 minutes to make"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeTransparency = 0.000
+TextLabel.TextWrapped = true
+
+-- Scripts:
+
+local function ZDWOZQ_fake_script() -- unload.LocalScript 
+	local script = Instance.new('LocalScript', unload)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		for _,v in pairs(workspace:GetDescendants()) do
+			if v.Name:find("Marker") then
+				if v:FindFirstChild("afgshfgtd") then
+					v.afgshfgtd:Destroy()
+				end
+				if v:FindFirstChild("hoifdrghni") then
+					v.hoifdrghni:Destroy()
+				end
+			end
+		end
+		script.Parent.Parent.Parent:Destroy()
+	end)
+end
+coroutine.wrap(ZDWOZQ_fake_script)()
+local function TNIJ_fake_script() -- esp.LocalScript 
+	local script = Instance.new('LocalScript', esp)
+
+	local button = script.Parent
+	local toggled = false
+	
+	button.MouseButton1Click:Connect(function()
+		toggled = not toggled
+		if toggled == true then
+			button.Text = "toggle esp (on)"
+			for _,v in pairs(workspace:GetDescendants()) do
+				if v.Name:find("Marker") then
+					if v:FindFirstChild("Face") then
+						local bbgui = Instance.new("BillboardGui", v)
+						bbgui.Name = "hoifdrghni"
+						bbgui.Size = UDim2.new(0, 200, 0, 50)
+						bbgui.StudsOffset = Vector3.new(0,3,0)
+						bbgui.MaxDistance = 2147483647
+						bbgui.AlwaysOnTop = true
+						local tl = Instance.new("TextLabel", bbgui)
+						tl.Name = "text"
+						tl.Size = UDim2.new(1,0,1,0)
+						tl.BackgroundTransparency = 1
+						tl.TextScaled = true
+						tl.TextStrokeTransparency = 0
+						tl.TextColor3 = Color3.new(1,1,1)
+						tl.Text = v.Name
+						local highlight = Instance.new("Highlight", v)
+						highlight.Name = "afgshfgtd"
+						highlight.FillTransparency = 0.75
+						highlight.FillColor = Color3.new(1,1,1)
+						highlight.OutlineTransparency = 0
+						highlight.OutlineColor = Color3.new(1,1,1)
+						v:FindFirstChild("Face").Touched:Connect(function()
+							task.wait(1.5)
+							v.hoifdrghni:Destroy()
+							v.afgshfgtd:Destroy()
+						end)
+					end
+				end
+			end
+		else
+			button.Text = "toggle esp (off)"
+			for _,v in pairs(workspace:GetDescendants()) do
+				if v.Name:find("Marker") then
+					if v:FindFirstChild("afgshfgtd") then
+						v.afgshfgtd:Destroy()
+					end
+					if v:FindFirstChild("hoifdrghni") then
+						v.hoifdrghni:Destroy()
+					end
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(TNIJ_fake_script)()
+local function TCASA_fake_script() -- Frame.drag 
+	local script = Instance.new('LocalScript', Frame)
+
+	--// Services
+	local Players = game:GetService('Players')
+	local UIS = game:GetService("UserInputService")
+	
+	--// Variables
+	local UI = script.Parent
+	
+	local Player = Players.LocalPlayer
+	local Mouse = Player:GetMouse()
+	
+	local Hovered = false
+	local Holding = false
+	local MoveCon = nil
+	
+	local InitialX, InitialY, UIInitialPos
+	
+	--// Functions
+	
+	local function Drag()
+		if Holding == false then MoveCon:Disconnect(); return end
+		local distanceMovedX = InitialX - Mouse.X
+		local distanceMovedY = InitialY - Mouse.Y
+	
+		UI.Position = UIInitialPos - UDim2.new(0, distanceMovedX, 0, distanceMovedY)
+	end
+	
+	--// Connections
+	
+	UI.MouseEnter:Connect(function()
+		Hovered = true
+	end)
+	
+	UI.MouseLeave:Connect(function()
+		Hovered = false
+	end)
+	
+	UIS.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Holding = Hovered
+			if Holding then
+				InitialX, InitialY = Mouse.X, Mouse.Y
+				UIInitialPos = UI.Position
+	
+				MoveCon = Mouse.Move:Connect(Drag)
+			end
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Holding = false
+		end
+	end)
+end
+coroutine.wrap(TCASA_fake_script)()
