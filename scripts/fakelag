@@ -144,7 +144,7 @@ local function FFWF_fake_script() -- unload.LocalScript
 	local script = Instance.new('LocalScript', unload)
 
 	local button = script.Parent
-	
+
 	button.MouseButton1Click:Connect(function()
 		button.Parent.Parent.fakelag.LocalScript.Enabled = false
 		local character = game.Players.LocalPlayer.Character
@@ -164,36 +164,39 @@ local function WJZPL_fake_script() -- fakelag.LocalScript
 	local delayTime = 0.4
 	local TextBoxWait = button.Parent.wait
 	local TextBoxDelay = button.Parent.delay
-	
+
 	button.MouseButton1Click:Connect(function()
 		FakeLag = not FakeLag
-			if FakeLag then
-				button.Text = "fake lag (on)"
-			else
-				button.Text = "fake lag (off)"
-			end
+		if FakeLag then
+			button.Text = "fake lag (on)"
+		else
+			button.Text = "fake lag (off)"
+		end
 	end)
-	
+
 	TextBoxWait.FocusLost:Connect(function()
 		waitTime = tonumber(TextBoxWait.Text) or waitTime
 	end)
-	
+
 	TextBoxDelay.FocusLost:Connect(function()
 		delayTime = tonumber(TextBoxDelay.Text) or delayTime
 	end)
-	
-	coroutine.wrap(function()
-		while wait(waitTime) do
-			if FakeLag then
-				local character = player.Character
-				if character and character:FindFirstChild("HumanoidRootPart") then
-					character.HumanoidRootPart.Anchored = true
-					wait(delayTime)
-					character.HumanoidRootPart.Anchored = false
+
+	while true do
+		if FakeLag then
+			while task.wait(waitTime) do
+				if FakeLag then
+					local character = player.Character
+					if character and character:FindFirstChild("HumanoidRootPart") then
+						character.HumanoidRootPart.Anchored = true
+						task.wait(delayTime)
+						character.HumanoidRootPart.Anchored = false
+					end
 				end
 			end
 		end
-	end)()
+		task.wait(0.1)
+	end
 end
 coroutine.wrap(WJZPL_fake_script)()
 local function YAPTT_fake_script() -- trip.LocalScript 
@@ -203,7 +206,7 @@ local function YAPTT_fake_script() -- trip.LocalScript
 	local button = script.Parent
 	local isPlatformStand = false
 	local canStandUp = false
-	
+
 	button.MouseButton1Click:Connect(function()
 		if player.Character and player.Character:FindFirstChild("Humanoid") then
 			local humanoid = player.Character.Humanoid
@@ -220,78 +223,3 @@ local function YAPTT_fake_script() -- trip.LocalScript
 		end
 	end)
 end
-coroutine.wrap(YAPTT_fake_script)()
-local function XRARX_fake_script() -- frame.handler 
-	local script = Instance.new('LocalScript', frame)
-
-	local FakeLag = false
-	local waitTime = 0.05
-	local delayTime = 0.4
-	
-	TextBoxWait.FocusLost:Connect(function()
-		waitTime = tonumber(TextBoxWait.Text) or waitTime
-	end)
-	
-	TextBoxDelay.FocusLost:Connect(function()
-		delayTime = tonumber(TextBoxDelay.Text) or delayTime
-	end)
-end
-coroutine.wrap(XRARX_fake_script)()
-local function QACZV_fake_script() -- frame.drag 
-	local script = Instance.new('LocalScript', frame)
-
-	--// Services
-	local Players = game:GetService('Players')
-	local UIS = game:GetService("UserInputService")
-	
-	--// Variables
-	local UI = script.Parent
-	
-	local Player = Players.LocalPlayer
-	local Mouse = Player:GetMouse()
-	
-	local Hovered = false
-	local Holding = false
-	local MoveCon = nil
-	
-	local InitialX, InitialY, UIInitialPos
-	
-	--// Functions
-	
-	local function Drag()
-		if Holding == false then MoveCon:Disconnect(); return end
-		local distanceMovedX = InitialX - Mouse.X
-		local distanceMovedY = InitialY - Mouse.Y
-	
-		UI.Position = UIInitialPos - UDim2.new(0, distanceMovedX, 0, distanceMovedY)
-	end
-	
-	--// Connections
-	
-	UI.MouseEnter:Connect(function()
-		Hovered = true
-	end)
-	
-	UI.MouseLeave:Connect(function()
-		Hovered = false
-	end)
-	
-	UIS.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			Holding = Hovered
-			if Holding then
-				InitialX, InitialY = Mouse.X, Mouse.Y
-				UIInitialPos = UI.Position
-	
-				MoveCon = Mouse.Move:Connect(Drag)
-			end
-		end
-	end)
-	
-	UIS.InputEnded:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			Holding = false
-		end
-	end)
-end
-coroutine.wrap(QACZV_fake_script)()
