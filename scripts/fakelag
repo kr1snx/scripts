@@ -1,0 +1,297 @@
+-- Instances:
+
+local FakeLagGUI = Instance.new("ScreenGui")
+local frame = Instance.new("Frame")
+local top = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local unload = Instance.new("TextButton")
+local delay = Instance.new("TextBox")
+local wait = Instance.new("TextBox")
+local fakelag = Instance.new("TextButton")
+local trip = Instance.new("TextButton")
+local UIListLayout = Instance.new("UIListLayout")
+
+--Properties:
+
+FakeLagGUI.Name = "FakeLagGUI"
+FakeLagGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+FakeLagGUI.DisplayOrder = 2147483647
+FakeLagGUI.ResetOnSpawn = false
+
+frame.Name = "frame"
+frame.Parent = FakeLagGUI
+frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+frame.BackgroundTransparency = 0.250
+frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+frame.BorderSizePixel = 0
+frame.Position = UDim2.new(0.577481866, 0, 0.320905447, 0)
+frame.Size = UDim2.new(0.338579506, 0, 0.290279627, 0)
+
+top.Name = "top"
+top.Parent = frame
+top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+top.BackgroundTransparency = 0.450
+top.BorderColor3 = Color3.fromRGB(0, 0, 0)
+top.BorderSizePixel = 0
+top.Size = UDim2.new(1, 0, 0.16055046, 0)
+
+TextLabel.Parent = top
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-1.45495008e-07, 0, 0, 0)
+TextLabel.Size = UDim2.new(0.75, 0, 1, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "fake lag script"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeTransparency = 0.000
+TextLabel.TextWrapped = true
+
+unload.Name = "unload"
+unload.Parent = top
+unload.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+unload.BackgroundTransparency = 0.500
+unload.BorderSizePixel = 0
+unload.Draggable = true
+unload.Position = UDim2.new(0.75, 0, 0, 0)
+unload.Size = UDim2.new(0.25, 0, 1, 0)
+unload.Font = Enum.Font.SourceSans
+unload.Text = "unload"
+unload.TextColor3 = Color3.fromRGB(255, 255, 255)
+unload.TextScaled = true
+unload.TextSize = 24.000
+unload.TextStrokeTransparency = 0.000
+unload.TextWrapped = true
+
+delay.Name = "delay"
+delay.Parent = frame
+delay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+delay.BackgroundTransparency = 0.750
+delay.BorderSizePixel = 0
+delay.LayoutOrder = 2
+delay.Position = UDim2.new(0, 0, 0.32110092, 0)
+delay.Size = UDim2.new(1, 0, 0.160999998, 0)
+delay.Font = Enum.Font.SourceSans
+delay.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+delay.PlaceholderText = "delay time"
+delay.Text = "0.4"
+delay.TextColor3 = Color3.fromRGB(255, 255, 255)
+delay.TextScaled = true
+delay.TextStrokeTransparency = 0.000
+delay.TextWrapped = true
+
+wait.Name = "wait"
+wait.Parent = frame
+wait.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+wait.BackgroundTransparency = 0.750
+wait.BorderSizePixel = 0
+wait.LayoutOrder = 1
+wait.Position = UDim2.new(0, 0, 0.16055046, 0)
+wait.Size = UDim2.new(1, 0, 0.160999998, 0)
+wait.Font = Enum.Font.SourceSans
+wait.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+wait.PlaceholderText = "wait time"
+wait.Text = "0.05"
+wait.TextColor3 = Color3.fromRGB(255, 255, 255)
+wait.TextScaled = true
+wait.TextStrokeTransparency = 0.000
+wait.TextWrapped = true
+
+fakelag.Name = "fakelag"
+fakelag.Parent = frame
+fakelag.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+fakelag.BackgroundTransparency = 0.500
+fakelag.BorderSizePixel = 0
+fakelag.Draggable = true
+fakelag.LayoutOrder = 3
+fakelag.Position = UDim2.new(-0.258045435, 200, 0.711009145, -51)
+fakelag.Size = UDim2.new(1, 0, 0.160999998, 0)
+fakelag.Font = Enum.Font.SourceSans
+fakelag.Text = "fake lag (off)"
+fakelag.TextColor3 = Color3.fromRGB(255, 255, 255)
+fakelag.TextScaled = true
+fakelag.TextSize = 18.000
+fakelag.TextStrokeTransparency = 0.000
+fakelag.TextWrapped = true
+
+trip.Name = "trip"
+trip.Parent = frame
+trip.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+trip.BackgroundTransparency = 0.500
+trip.BorderSizePixel = 0
+trip.Draggable = true
+trip.LayoutOrder = 4
+trip.Position = UDim2.new(0.499999851, -118, 0.5, 46)
+trip.Size = UDim2.new(1, 0, 0.160999998, 0)
+trip.Font = Enum.Font.SourceSans
+trip.Text = "trip"
+trip.TextColor3 = Color3.fromRGB(255, 255, 255)
+trip.TextScaled = true
+trip.TextSize = 24.000
+trip.TextStrokeTransparency = 0.000
+trip.TextWrapped = true
+
+UIListLayout.Parent = frame
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+-- Scripts:
+
+local function FFWF_fake_script() -- unload.LocalScript 
+	local script = Instance.new('LocalScript', unload)
+
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		button.Parent.Parent.fakelag.LocalScript.Enabled = false
+		local character = game.Players.LocalPlayer.Character
+		character:FindFirstChild("HumanoidRootPart").Anchored = false
+		character:FindFirstChild("Humanoid").PlatformStand = false
+		button.Parent.Parent.Parent:Destroy()
+	end)
+end
+coroutine.wrap(FFWF_fake_script)()
+local function WJZPL_fake_script() -- fakelag.LocalScript 
+	local script = Instance.new('LocalScript', fakelag)
+
+	local player = game.Players.LocalPlayer
+	local button = script.Parent
+	local FakeLag = false
+	local waitTime = 0.05
+	local delayTime = 0.4
+	local TextBoxWait = button.Parent.wait
+	local TextBoxDelay = button.Parent.delay
+	
+	button.MouseButton1Click:Connect(function()
+		FakeLag = not FakeLag
+			if FakeLag then
+				button.Text = "fake lag (on)"
+			else
+				button.Text = "fake lag (off)"
+			end
+	end)
+	
+	TextBoxWait.FocusLost:Connect(function()
+		waitTime = tonumber(TextBoxWait.Text) or waitTime
+	end)
+	
+	TextBoxDelay.FocusLost:Connect(function()
+		delayTime = tonumber(TextBoxDelay.Text) or delayTime
+	end)
+	
+	coroutine.wrap(function()
+		while wait(waitTime) do
+			if FakeLag then
+				local character = player.Character
+				if character and character:FindFirstChild("HumanoidRootPart") then
+					character.HumanoidRootPart.Anchored = true
+					wait(delayTime)
+					character.HumanoidRootPart.Anchored = false
+				end
+			end
+		end
+	end)()
+end
+coroutine.wrap(WJZPL_fake_script)()
+local function YAPTT_fake_script() -- trip.LocalScript 
+	local script = Instance.new('LocalScript', trip)
+
+	local player = game.Players.LocalPlayer
+	local button = script.Parent
+	local isPlatformStand = false
+	local canStandUp = false
+	
+	button.MouseButton1Click:Connect(function()
+		if player.Character and player.Character:FindFirstChild("Humanoid") then
+			local humanoid = player.Character.Humanoid
+			if not isPlatformStand then
+				humanoid.PlatformStand = true
+				humanoid:Move(Vector3.new(0, -50, 0))
+				canStandUp = true
+				isPlatformStand = true
+			elseif canStandUp then
+				humanoid.PlatformStand = false
+				isPlatformStand = false
+				canStandUp = false
+			end
+		end
+	end)
+end
+coroutine.wrap(YAPTT_fake_script)()
+local function XRARX_fake_script() -- frame.handler 
+	local script = Instance.new('LocalScript', frame)
+
+	local FakeLag = false
+	local waitTime = 0.05
+	local delayTime = 0.4
+	
+	TextBoxWait.FocusLost:Connect(function()
+		waitTime = tonumber(TextBoxWait.Text) or waitTime
+	end)
+	
+	TextBoxDelay.FocusLost:Connect(function()
+		delayTime = tonumber(TextBoxDelay.Text) or delayTime
+	end)
+end
+coroutine.wrap(XRARX_fake_script)()
+local function QACZV_fake_script() -- frame.drag 
+	local script = Instance.new('LocalScript', frame)
+
+	--// Services
+	local Players = game:GetService('Players')
+	local UIS = game:GetService("UserInputService")
+	
+	--// Variables
+	local UI = script.Parent
+	
+	local Player = Players.LocalPlayer
+	local Mouse = Player:GetMouse()
+	
+	local Hovered = false
+	local Holding = false
+	local MoveCon = nil
+	
+	local InitialX, InitialY, UIInitialPos
+	
+	--// Functions
+	
+	local function Drag()
+		if Holding == false then MoveCon:Disconnect(); return end
+		local distanceMovedX = InitialX - Mouse.X
+		local distanceMovedY = InitialY - Mouse.Y
+	
+		UI.Position = UIInitialPos - UDim2.new(0, distanceMovedX, 0, distanceMovedY)
+	end
+	
+	--// Connections
+	
+	UI.MouseEnter:Connect(function()
+		Hovered = true
+	end)
+	
+	UI.MouseLeave:Connect(function()
+		Hovered = false
+	end)
+	
+	UIS.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Holding = Hovered
+			if Holding then
+				InitialX, InitialY = Mouse.X, Mouse.Y
+				UIInitialPos = UI.Position
+	
+				MoveCon = Mouse.Move:Connect(Drag)
+			end
+		end
+	end)
+	
+	UIS.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			Holding = false
+		end
+	end)
+end
+coroutine.wrap(QACZV_fake_script)()
